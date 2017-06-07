@@ -40,6 +40,14 @@
                                     <segue destination="7AX-su-gHl" kind="show" id="oIA-mO-AXX"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ugk-0F-dCt" userLabel="Magenta Test">
+                                <rect key="frame" x="153" y="250" width="69" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Magenta Tests"/>
+                                <connections>
+                                    <segue destination="gtQ-vm-wwc" kind="show" id="G9K-x4-LO6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -178,6 +186,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h7r-ic-59l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-637.60000000000002" y="-31.03448275862069"/>
+        </scene>
+        <!--Magenta View Controller-->
+        <scene sceneID="Vc6-8N-Af2">
+            <objects>
+                <viewController id="gtQ-vm-wwc" customClass="MagentaViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XWG-Ix-Ite"/>
+                        <viewControllerLayoutGuide type="bottom" id="fMB-m8-ESj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kLz-be-dAm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mg6-C9-keG">
+                                <rect key="frame" x="0.0" y="141" width="375" height="375"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Mg6-C9-keG" secondAttribute="height" id="Vg5-sa-wS2"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxw-Nw-0Gw">
+                                <rect key="frame" x="172" y="553" width="30" height="30"/>
+                                <state key="normal" title="Run"/>
+                                <connections>
+                                    <action selector="runNetwork:" destination="gtQ-vm-wwc" eventType="touchUpInside" id="AfB-qm-nuz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m7h-6v-Z9R">
+                                <rect key="frame" x="147" y="591" width="80" height="30"/>
+                                <state key="normal" title="Stop debug"/>
+                                <connections>
+                                    <action selector="stopDebug:" destination="gtQ-vm-wwc" eventType="touchUpInside" id="eOZ-HP-BL2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="m7h-6v-Z9R" firstAttribute="centerX" secondItem="rxw-Nw-0Gw" secondAttribute="centerX" id="2d5-R8-fId"/>
+                            <constraint firstItem="rxw-Nw-0Gw" firstAttribute="centerX" secondItem="kLz-be-dAm" secondAttribute="centerX" id="5fD-eC-lDK"/>
+                            <constraint firstItem="fMB-m8-ESj" firstAttribute="top" secondItem="rxw-Nw-0Gw" secondAttribute="bottom" constant="84" id="7qU-IG-vy9"/>
+                            <constraint firstItem="m7h-6v-Z9R" firstAttribute="top" secondItem="rxw-Nw-0Gw" secondAttribute="bottom" constant="8" id="Mpo-3P-WJH"/>
+                            <constraint firstAttribute="trailing" secondItem="Mg6-C9-keG" secondAttribute="trailing" id="O2h-tw-l3g"/>
+                            <constraint firstItem="Mg6-C9-keG" firstAttribute="top" secondItem="XWG-Ix-Ite" secondAttribute="bottom" constant="77" id="heh-H6-jxM"/>
+                            <constraint firstItem="Mg6-C9-keG" firstAttribute="leading" secondItem="kLz-be-dAm" secondAttribute="leading" id="uTN-og-7Ne"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="Mg6-C9-keG" id="cWQ-Tn-ScE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f70-gP-2ib" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1406" y="-965"/>
         </scene>
     </scenes>
 </document>

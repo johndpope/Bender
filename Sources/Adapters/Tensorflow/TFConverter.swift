@@ -58,6 +58,26 @@ open class TFConverter: Converter {
         runOptimizers(graph: &graph)
         return translateOperators(graph: graph)
     }
+    
+    /// Converts a graph from an Tensorflow_MetaGraphDef.
+    /// - Parameters:
+    ///   - metagraphFile: The protobuf of Tensorflow_MetaGraphDef
+    /// - Returns: The converted network layers
+    
+    open func convertMetaGraph(_ metagraphFile: Tensorflow_MetaGraphDef) -> [NetworkLayer] {
+        
+        var graph =  TFGraph(graphDef: metagraphFile.graphDef)
+      
+        if verbose {
+            debugPrint("\n\n\nNodes in my graph (pre optimization):")
+            for node in graph.nodes {
+                debugPrint("\(node.nodeDef.name)")
+            }
+        }
+        
+        runOptimizers(graph: &graph)
+        return translateOperators(graph: graph)
+    }
 
     /// Runs all the optimizers on the graph passed as argument.
     /// All nodes that have neither incoming nor outgoing edges are removed.

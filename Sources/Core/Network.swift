@@ -39,6 +39,14 @@ public class Network {
     public func convert(converter: Converter, url: URL, type: ProtoFileType) {
         nodes = converter.convertGraph(file: url, type: type)
     }
+    
+    
+    /// Converts a tensorflow metagraph to Bender
+    public func convertMetaGraph(converter: Converter, metagraphFile: Tensorflow_MetaGraphDef) {
+        nodes = converter.convertMetaGraph(metagraphFile)
+
+    }
+    
 
     /// Initializes the layers of the network
     public func initialize() {

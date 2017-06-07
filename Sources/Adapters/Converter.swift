@@ -22,4 +22,7 @@ public protocol Converter {
     /// Converts a model from another framework to Bender
     func convertGraph(file: URL, type: ProtoFileType) -> [NetworkLayer]
 
+    /// Converts a tensorflow metagraph to Bender
+    func convertMetaGraph(_ metagraphFile: Tensorflow_MetaGraphDef) -> [NetworkLayer]
+    
 }
