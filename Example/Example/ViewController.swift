@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Bender
 
 class TestViewController: UIViewController {
 
@@ -14,7 +15,22 @@ class TestViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        testRunner.run()
+      //  testRunner.run()
+        
+        if let path = Bundle.main.path(forResource: "attention_rnn", ofType: "mag"){
+            
+            let model = try? Data(contentsOf:URL(fileURLWithPath: path))
+            
+            // pull apart inception model.
+            let myGraphProto = try? Tensorflow_Magenta_GeneratorBundle.init(serializedData:model!)
+            
+            let metaGraphData = myGraphProto!.metagraphFile
+            
+            let graph1 = try? Tensorflow_MetaGraphDef.init(serializedData:metaGraphData)
+            print("graph1:",graph1)
+        }
+       
+        
     }
 
 }
